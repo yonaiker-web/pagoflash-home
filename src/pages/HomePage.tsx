@@ -19,7 +19,7 @@ import CustomPulse from "../components/custom/CustomPulse";
 import { Slide } from "react-awesome-reveal";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 
 import tabletBG from "../assets/images/Tablet.jpg";
 
@@ -345,14 +345,14 @@ const HomePage = () => {
         <Box py="12">
           <ChakraSwiper
             navigation={true}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             display="flex"
             alignItems="stretch"
             justifyContent="center"
             maxWidth="1200px"
             mx="auto"
             autoplay={{
-              delay: 5000,
+              delay: 3000,
             }}
             loop={true}
           >

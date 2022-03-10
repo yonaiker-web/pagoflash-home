@@ -5,6 +5,11 @@ body {
     sans-serif;
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+  color: #c1c1c1;
+}
+
 @keyframes fade-move-down {
   0% {
     transform: translate(0, -20px);

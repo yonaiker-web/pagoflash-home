@@ -6,6 +6,9 @@ import AppContext from "./context/AppContext";
 import RegisterPage from "./pages/RegisterPage";*/
 import { publicDir, routes } from "./routes/routes";
 
+import "swiper/css";
+import "swiper/css/navigation";
+
 import "./theme/app-theme.css";
 import "./theme/devices.css";
 

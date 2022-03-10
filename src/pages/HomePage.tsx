@@ -1,5 +1,8 @@
+import { Box } from "@chakra-ui/react";
+import { Navbar } from "../components/navbar";
+
 const HomePage = () => {
-  return <h1>funcional</h1>;
+  return <Box></Box>;
 };
 
 export default HomePage;

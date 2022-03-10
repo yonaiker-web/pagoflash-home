@@ -7,9 +7,6 @@ interface DirRoutes {
 
 export const routes = {
   home: "/*",
-  login: "/login",
-  register: "/register",
-  payment: "/payment",
 };
 
 export const publicDir: DirRoutes[] = [

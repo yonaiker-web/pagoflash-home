@@ -1,26 +1,16 @@
-import { AddIcon, CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   useColorModeValue,
   Flex,
   IconButton,
   HStack,
-  Menu,
-  MenuButton,
   Button,
-  AvatarGroup,
-  Avatar,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   Stack,
-  Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { routes } from "../../routes/routes";
-import { Custom } from "../custom";
-import { AiOutlineUser } from "react-icons/ai";
 
 interface INavLink {
   to: string;
@@ -42,7 +32,12 @@ export const Navbar = () => {
 
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Box
+        bg={useColorModeValue("gray.100", "gray.900")}
+        px={8}
+        mt="4"
+        mb={"4"}
+      >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -121,8 +116,6 @@ export const Navbar = () => {
           </Box>
         ) : null}
       </Box>
-
-      <Box p={4}>Main Content Here</Box>
     </>
   );
 };

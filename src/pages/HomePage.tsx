@@ -30,8 +30,6 @@ interface HowToUseItem {
   description: string;
 }
 
-import { Slide } from "react-awesome-reveal";
-
 const HomePage = () => {
   const heroBottomUrl = `url(${bgHeroBottom})`;
 

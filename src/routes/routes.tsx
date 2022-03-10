@@ -6,7 +6,7 @@ interface DirRoutes {
 }
 
 export const routes = {
-  home: "/*",
+  home: "/",
 };
 
 export const publicDir: DirRoutes[] = [

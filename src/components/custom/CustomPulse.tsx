@@ -19,6 +19,7 @@ const CustomPulse: FC<PropsWithChildren<Props>> = ({
   return (
     <Box
       position="relative"
+      display="inline-block"
       height={`${sizing}px`}
       width={`${sizing}px`}
       borderRadius="100%"

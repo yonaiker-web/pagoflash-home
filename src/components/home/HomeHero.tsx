@@ -80,7 +80,7 @@ const HomeHero: FC = () => {
               rounded="sm"
               color="black"
               size="lg"
-              _hover={{ bg: "blue.500" }}
+              _hover={{ bg: "orange.500" }}
             >
               Agenda una asesoría
             </Button>

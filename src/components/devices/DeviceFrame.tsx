@@ -2,8 +2,20 @@ import { FC, useMemo } from "react";
 import { DeviceFramesetProps } from "react-device-frameset";
 import { DeviceOptions } from "./DeviceOptions";
 
-const DeviceFrame: FC<DeviceFramesetProps> = (props) => {
-  const { children, device, width, height, zoom, ...restProps } = props;
+type Props = DeviceFramesetProps & {
+  size?: number;
+};
+
+const DeviceFrame: FC<Props> = (props) => {
+  const {
+    children,
+    device,
+    width,
+    height,
+    zoom,
+    size = 1,
+    ...restProps
+  } = props;
 
   //@ts-expect-error
   const { landscape: _l, color: _c, ...divProps } = restProps;
@@ -18,30 +30,16 @@ const DeviceFrame: FC<DeviceFramesetProps> = (props) => {
             width: height,
             height: width,
             transform: zoom !== undefined ? `scale(${zoom})` : undefined,
+            "--size-divisor": size,
           }
         : {
             width,
             height,
             transform: zoom !== undefined ? `scale(${zoom})` : undefined,
+            "--size-divisor": size,
           },
-    [width, height, landscape, device, zoom]
+    [width, height, landscape, device, zoom, size]
   );
-
-  const isMacBook = device === "MacBook Pro";
-
-  const topStyle = !isMacBook
-    ? {}
-    : {
-        bottom: "-24px",
-        top: "unset",
-      };
-
-  const bottomStyle = !isMacBook
-    ? {}
-    : {
-        bottom: "-24px",
-        top: "unset",
-      };
 
   return (
     <div
@@ -63,9 +61,9 @@ const DeviceFrame: FC<DeviceFramesetProps> = (props) => {
           <div className="speaker" />
         </div>
       ) : null}
-      <div className="top-bar" style={topStyle} />
+      <div className="top-bar" />
       <div className="sleep" />
-      {!isMacBook && <div className="bottom-bar" />}
+      <div className="bottom-bar" />
       <div className="volume" />
       <div className="camera" />
       <div className="sensor" />
@@ -83,7 +81,7 @@ const DeviceFrame: FC<DeviceFramesetProps> = (props) => {
       <div className="inner-shadow"></div>
       <div className="screen">{children}</div>
       <div className="home"></div>
-      <div className="bottom-bar" style={bottomStyle}></div>
+      <div className="bottom-bar"></div>
     </div>
   );
 };

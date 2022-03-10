@@ -1,26 +1,14 @@
-import { AddIcon, CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
-  useColorModeValue,
   Flex,
   IconButton,
-  HStack,
-  Menu,
-  MenuButton,
   Button,
-  AvatarGroup,
-  Avatar,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   Stack,
-  Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import NavLink from "./NavLink";
 import { routes } from "../../routes/routes";
-import { Custom } from "../custom";
-import { AiOutlineUser } from "react-icons/ai";
 import { useScrollPosition } from "../../hooks/useScrollPosition";
 import { useRef, useState } from "react";
 

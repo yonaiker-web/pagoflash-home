@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AppLayout from "./components/layout/AppLayout";
 /* import Dashboard from "./components/Dashboard"; */
 import AppContext from "./context/AppContext";
 /* import LoginPage from "./pages/LoginPage";
@@ -14,13 +15,15 @@ const App = () => {
   return (
     <AppContext>
       <BrowserRouter>
-        <Routes>
-          {publicDir.map((publicRoute) => (
-            <Route {...publicRoute} key={publicRoute.path} />
-          ))}
+        <AppLayout>
+          <Routes>
+            {publicDir.map((publicRoute) => (
+              <Route {...publicRoute} key={publicRoute.path} />
+            ))}
 
-          <Route element={<>{/* <Dashboard /> */}</>} path={home} />
-        </Routes>
+            <Route element={<>{/* <Dashboard /> */}</>} path={home} />
+          </Routes>
+        </AppLayout>
       </BrowserRouter>
     </AppContext>
   );

@@ -1,19 +1,19 @@
-import { Route, Routes } from "react-router-dom"
-import { privateDir } from "../routes/routes"
-import {Navbar} from "./navbar"
+import { Route, Routes } from "react-router-dom";
+import { privateDir } from "../routes/routes";
+import { Navbar } from "./navbar";
 
 const Dashboard = () => {
-    <>
-        <Navbar>
+  <>
+    {/* <Navbar>
             <Navbar.Image></Navbar.Image>
-        </Navbar>
+        </Navbar> */}
 
-        <Routes>
-            {privateDir.map((privateRoute) => {
-                return <Route {...privateRoute} key={privateRoute.path}/>
-            })}
-        </Routes>
-    </>
-}
+    <Routes>
+      {privateDir.map((privateRoute) => {
+        return <Route {...privateRoute} key={privateRoute.path} />;
+      })}
+    </Routes>
+  </>;
+};
 
-export default Dashboard
+export default Dashboard;

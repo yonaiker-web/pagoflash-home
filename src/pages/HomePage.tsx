@@ -11,6 +11,7 @@ import {
   Flex,
   chakra,
   VStack,
+  Link,
 } from "@chakra-ui/react";
 import HomeHero from "../components/home/HomeHero";
 import bgHeroBottom from "../assets/images/herobottom.png";
@@ -572,7 +573,9 @@ const HomePage = () => {
               <Text>Contáctanos</Text>
               <Text>Blog</Text>
               {socialRed.map(({ icon, link }, i) => (
-                <Text key={i}>{icon}</Text>
+                <Text fontSize={20}>
+                  <Link href={link}>{icon}</Link>
+                </Text>
               ))}
             </HStack>
           </Flex>

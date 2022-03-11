@@ -10,6 +10,7 @@ import {
   Grid,
   Flex,
   chakra,
+  VStack,
 } from "@chakra-ui/react";
 import HomeHero from "../components/home/HomeHero";
 import bgHeroBottom from "../assets/images/herobottom.png";
@@ -26,10 +27,14 @@ import tabletBG from "../assets/images/Tablet.jpg";
 import slideZuliatect from "../assets/images/slider-zuliatect.png";
 import slideCarbone from "../assets/images/slider-carbone.jpg";
 import slideLaCasaDelArbol from "../assets/images/slider-lacasadelarbol.png";
+import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 const pagoClick = require("../assets/images/img-pagoclick.png");
 const pagoMail = require("../assets/images/img-pagomail.png");
 const pagoShop = require("../assets/images/img-pagoshop.png");
+
+const bgsabesporque = require("../assets/images/gb-sabesporquenoseligen.jpg");
+const bgPhone = require("../assets/images/img-phone.jpg");
 
 interface HowToUseLink {
   text: string;
@@ -40,6 +45,16 @@ interface HowToUseItem {
   links: HowToUseLink[];
   image: string;
   description: string;
+}
+
+interface DoYouKnowDescription {
+  text: string;
+  highlight?: boolean;
+}
+
+interface SocialRed {
+  icon: JSX.Element;
+  link: string;
 }
 
 interface Step {
@@ -87,6 +102,58 @@ const HomePage = () => {
         { text: "¿Como agregar un método de pago?s", link: "www.google.com" },
       ],
       description: "Botón de pago para tu página web.",
+    },
+  ];
+
+  const doYouKnow: DoYouKnowDescription[][] = [
+    [
+      {
+        text: "Productos enfocados en ti que",
+      },
+      {
+        text: "te harán vender más",
+        highlight: true,
+      },
+    ],
+    [
+      {
+        text: "Gestionamos y hacemos seguimiento",
+      },
+      {
+        text: " tus pagos",
+        highlight: true,
+      },
+    ],
+    [
+      {
+        text: "Garantizamos la",
+      },
+      {
+        text: " seguridad",
+        highlight: true,
+      },
+      {
+        text: " de tu dinero",
+      },
+    ],
+    [
+      {
+        text: "No importa el tamaño de tu negocio",
+      },
+      {
+        text: " la atención será personalizada",
+        highlight: true,
+      },
+    ],
+  ];
+
+  const socialRed: SocialRed[] = [
+    { icon: <BsTwitter />, link: "https://twitter.com/pagoflash" },
+    { icon: <BsFacebook />, link: "https://www.facebook.com/PagoFlash" },
+    { icon: <BsInstagram />, link: "https://www.instagram.com/pagoflashve/" },
+    {
+      icon: <BsLinkedin />,
+      link: "https://www.linkedin.com/company/pagoflash-c-a",
     },
   ];
 
@@ -342,7 +409,94 @@ const HomePage = () => {
           </Box>
         </Box>
 
+        <Box maxW="1200px" mx="auto" marginTop={"10"}>
+          <Heading size="3xl" fontWeight="regular">
+            <Flex justifyContent="center">
+              <Text color="gray.700" fontSize="6xl" fontWeight="medium">
+                ¿Sabes{" "}
+                <Text color="orange.500" as="span">
+                  por qué{" "}
+                </Text>
+                nos eligen?
+              </Text>
+            </Flex>
+          </Heading>
+
+          <Box
+            bgColor={"gray.700"}
+            h="3px"
+            maxW={"100px"}
+            mx="auto"
+            my="8"
+          ></Box>
+
+          <Box
+            textAlign="center"
+            my="16"
+            py="16"
+            bg="brand.500"
+            color="black.500"
+          >
+            <Slide duration={1000} direction="up" triggerOnce>
+              <Stack
+                direction={{ base: "row", lg: "row" }}
+                justifyContent="center"
+                spacing={{ base: "12", lg: "48" }}
+                alignItems={{ base: "center", lg: "center" }}
+              >
+                <VStack
+                  alignContent={"flex-start"}
+                  direction="column"
+                  bgImage={`url(${bgsabesporque})`}
+                  bgRepeat="no-repeat"
+                  bgSize="contain"
+                  maxW={"600px"}
+                  justifyContent="center"
+                  paddingLeft={"12rem"}
+                  spacing="5rem"
+                >
+                  {doYouKnow.map((description, i) => (
+                    <Box key={i} textAlign="left">
+                      {description.map(({ text, highlight }, i) => (
+                        <Text
+                          fontSize="3xl"
+                          fontWeight="medium"
+                          as="span"
+                          key={i}
+                          color={highlight ? "orange.500" : "gray.700"}
+                        >
+                          {text}{" "}
+                        </Text>
+                      ))}
+                    </Box>
+                  ))}
+                </VStack>
+
+                <DeviceFrame device="iPhone X" color="black" size={1.8}>
+                  <Box
+                    bgImage={bgPhone}
+                    height="100%"
+                    bgSize={"contain"}
+                    bgRepeat="no-repeat"
+                    bgPosition={"center"}
+                    bgColor="orange.500"
+                  ></Box>
+                </DeviceFrame>
+              </Stack>
+            </Slide>
+          </Box>
+        </Box>
+
         <Box py="12">
+          <Flex justifyContent="center">
+            <Text color="gray.700" fontSize="6xl" fontWeight="medium">
+              Testimonios{" "}
+              <Text color="orange.500" as="span">
+                PagoLovers
+              </Text>
+            </Text>
+          </Flex>
+
           <ChakraSwiper
             navigation={true}
             modules={[Navigation, Autoplay]}
@@ -417,6 +571,9 @@ const HomePage = () => {
               <Text>Soporte</Text>
               <Text>Contáctanos</Text>
               <Text>Blog</Text>
+              {socialRed.map(({ icon, link }, i) => (
+                <Text key={i}>{icon}</Text>
+              ))}
             </HStack>
           </Flex>
         </Box>
